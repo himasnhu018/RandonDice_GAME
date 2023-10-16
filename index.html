@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dice{
+    margin: 2rem;
+    justify-content: center;
+}
+
+.par{
+    background-color: aqua;
+}
+h1{
+    background-color: aquamarine;
+}
+input{
+    padding:5px;
+    border-radius: 5px;
+            margin-left:50%;
+}
+.target1{
+            height:100vh;
+        }
+</style>
+</head>
+<body>
+   <div class="par">
+    <h1 align="center">Welcome to the Game</h1>
+    <div class="container">
+        <div class="dice">
+                <img id="dice_img1" src="./images/dice_1.jpg" height="200" alt="dice 1"><h2 align="center">Player 1</h2>
+        </div>
+        <div class="dice">
+            <img id="dice_img2" src="./images/dice_2.jpg" height="200" alt="dice 2">
+            <h2 align="center">Player 2</h2>
+        </div>
+   </div>
+
+   <input type="button" value="Let's Play">
+   <div class="target1">
+        <!-- <div class="dice">
+            <img src="./images/dice_3.jpg" height="200" alt="dice 2">
+            <h2 align="center">Player 3</h2>
+        </div>
+        <div class="dice">
+            <img src="./images/dice_4.jpg" height="200" alt="dice 2">
+            <h2 align="center">Player 4</h2>
+        </div>
+        <div class="dice">
+            <img src="./images/dice_5.jpg" height="200" alt="dice 2">
+            <h2 align="center">Player 5</h2>
+        </div>
+        <div class="dice">
+            <img src="./images/dice_6.jpg" height="200" alt="dice 2">
+            <h2 align="center">Player 6</h2>
+        </div> -->
+    </div>
+    <!-- <input type="button"> -->
+    <script>
+    var val1=Math.floor(Math.random()*6)+1;
+    var val2=Math.floor(Math.random()*6)+1;
+    var attri1="./images/dice_"+val1+".jpg";
+    document.querySelector("#dice_img1").setAttribute("src", attri1);
+    var attri2="./images/dice_"+val2+".jpg";
+    document.querySelector("#dice_img2").setAttribute("src", attri2);
+    var target=document.querySelector("h1");
+    if(val1>val2){
+            target.textContent="Player 1 Wins!!!";
+        }
+        else if(val2>val1){
+            target.textContent="Player 2 Wins!!!";
+        }
+        else{
+            target.textContent="It's a draw!";
+        }
+        document.querySelector("input").addEventListener("click", ()=>{
+            document.location.reload("true");
+        });
+
+    </script>
+</body>
+</html>
